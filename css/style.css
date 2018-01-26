@@ -11,9 +11,11 @@
 }
 
 .pure-menu-item {
-    height: auto;
-    padding-left: 1em;
-    
+    height: auto;    
+}
+
+.bookmark-item-favicon {
+    vertical-align: middle;
 }
 
 .category-header {

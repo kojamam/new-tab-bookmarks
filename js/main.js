@@ -14,7 +14,14 @@ function deleteNodeHeader(node) {
 }
 
 function appendNodeItem(node, item) {
-    $(`#category-${node.title}`).append(`<li class="pure-menu-item" title="${item.title}"><a href="${item.url}" class="pure-menu-link bookmark-item">${item.title}</a></li>`);
+    const faviconUrl = "https://www.google.com/s2/favicons?domain_url=" + item.url;
+    $(`#category-${node.title}`).append(`
+        <li class="pure-menu-item" title="${item.title}"><a href="${item.url}" class="pure-menu-link bookmark-item">
+            <img src="${faviconUrl}" class="bookmark-item-favicon"/>
+                ${item.title}
+            </a>
+        </li>
+    `);
 }
 
 function loadSubTree(node) {
