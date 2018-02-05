@@ -1,9 +1,11 @@
 function appendNodeHeader(node) {
     $("#bookmarks").append(`
-        <div class="pure-u-1  pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-6  list-item-wrapper" id="category-${node.title}-wrapper">
-            <div class="pure-menu pure-menu-scrollable bookmark-folder">
+        <div class="pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-6  list-item-wrapper" id="category-${node.title}-wrapper">
+            <div class="bookmark-folder">
                 <span class="pure-menu-heading category-header">${node.title}</span>
-                <ul class="pure-menu-list" id="category-${node.title}"></ul>
+                <div class="pure-menu pure-menu-scrollable bookmark-items">
+                    <ul class="pure-menu-list" id="category-${node.title}"></ul>
+                </div>
             </div>
         </div>
         `);
