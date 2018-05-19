@@ -11,6 +11,7 @@
 }
 .bookmark-items{
     height: 80%;
+    overflow: auto;
 }
 
 .pure-menu-item {
