@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "New Tab Bookmark",
-    "version": "0.2.1",
+    "version": "0.2.3",
     "description": "Replace New Tab page with a list of your bookmark.",
     "icons": {
     },
@@ -12,6 +12,11 @@
         "newtab": "html/index.html"
     },
     "permissions": [
-        "bookmarks"
-    ]
+        "bookmarks",
+        "storage"
+    ],
+    "options_ui": {
+        "page": "html/options.html",
+        "browser_style": true
+    }
 }

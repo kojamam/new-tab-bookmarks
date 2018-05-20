@@ -9,9 +9,13 @@
     border: 1px solid gray;
     border-radius: 4px;
 }
-.bookmark-items{
+.bookmark-items {
     height: 80%;
-    overflow: auto;
+    overflow-y: hidden;
+}
+
+.bookmark-items:hover {
+    overflow-y: auto;
 }
 
 .pure-menu-item {
