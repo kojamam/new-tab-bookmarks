@@ -1,8 +1,9 @@
 {
     "manifest_version": 2,
-    "name": "New Tab Bookmark",
-    "version": "0.2.3",
-    "description": "Replace New Tab page with a list of your bookmark.",
+    "name": "New Tab Bookmarks",
+    "version": "0.3.0",
+    "description": "Replace new tab page with a list of your bookmarks menu.",
+    "homepage_url": "https://github.com/kyamuise/new-tab-bookmarks",
     "icons": {
     },
     "developer": {
