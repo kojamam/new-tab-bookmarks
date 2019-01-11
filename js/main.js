@@ -1,11 +1,14 @@
 'use strict'
 
-function appendNodeHeader(node) {
-    const elem = document.createElement("div");
-    elem.setAttribute("id", "category-" + node.title+"-wrapper");
-    elem.setAttribute("class", "pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-6 list-item-wrapper");
+function space2underscore(str) {
+    return str.replace(/\s+/g, "_");
+}
 
-    console.log(elem);
+function appendNodeHeader(node) {
+
+    const elem = document.createElement("div");
+    elem.setAttribute("id", "category-" + space2underscore(node.title) + "-wrapper");
+    elem.setAttribute("class", "pure-u-1 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-6 list-item-wrapper");
 
     const elem2 = document.createElement("div");
     elem2.setAttribute("class", "bookmark-folder");
@@ -19,7 +22,7 @@ function appendNodeHeader(node) {
 
     const elem5 = document.createElement("ul");
     elem5.setAttribute("class", "pure-menu-list");
-    elem5.setAttribute("id", "category-" + node.title);
+    elem5.setAttribute("id", "category-" + space2underscore(node.title));
 
     elem4.append(elem5);
     elem2.append(elem3, elem4);
@@ -29,7 +32,7 @@ function appendNodeHeader(node) {
 }
 
 function deleteNodeHeader(node) {
-    document.querySelector("#category-" + node.title+"-wrapper").remove();
+    document.querySelector("#category-" + space2underscore(node.title) + "-wrapper").remove();
 }
 
 function appendNodeItem(node, item) {
@@ -50,7 +53,7 @@ function appendNodeItem(node, item) {
     elem2.append(elem3, " " + item.title);
     elem.append(elem2);
 
-    document.querySelector("#category-" + node.title).appendChild(elem);
+    document.querySelector("#category-" + space2underscore(node.title)).appendChild(elem);
 }
 
 function loadSubTree(node) {
@@ -69,9 +72,6 @@ function loadSubTree(node) {
     }
 }
 
-// browser.bookmarks.getTree((node) => {
-//     loadSubTree(node[0]);
-// });
 browser.bookmarks.getSubTree("menu________", (node) => {
     loadSubTree(node[0]);
 });
