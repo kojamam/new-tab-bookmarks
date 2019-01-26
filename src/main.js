@@ -1,5 +1,7 @@
 'use strict'
 
+let settings = {};
+
 function space2underscore(str) {
     return str.replace(/\s+/g, "_");
 }
@@ -46,11 +48,14 @@ function appendNodeItem(node, item) {
     elem2.setAttribute("href", item.url);
     elem2.setAttribute("class", "pure-menu-link bookmark-item");
 
-    const elem3 = document.createElement("img");
-    elem3.setAttribute("src", faviconUrl);
-    elem3.setAttribute("class", "bookmark-item-favicon");
-
-    elem2.append(elem3, " " + item.title);
+    if (settings.faviconDisplay == "favicon-display-off") {
+        elem2.append(item.title);
+    } else {
+        const elem3 = document.createElement("img");
+        elem3.setAttribute("src", faviconUrl);
+        elem3.setAttribute("class", "bookmark-item-favicon");
+        elem2.append(elem3, " " + item.title);
+    }
     elem.append(elem2);
 
     document.querySelector("#category-" + space2underscore(node.title)).appendChild(elem);
@@ -71,7 +76,12 @@ function loadSubTree(node) {
         deleteNodeHeader(node);
     }
 }
+function init(res) {
+    settings = res.settings || {};
+    browser.bookmarks.getSubTree("menu________", (node) => {
+        loadSubTree(node[0]);
+    });
+}
 
-browser.bookmarks.getSubTree("menu________", (node) => {
-    loadSubTree(node[0]);
-});
+var getting = browser.storage.local.get("settings");
+getting.then(init);

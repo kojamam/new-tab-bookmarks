@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "New Tab Bookmarks",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "description": "Replace new tab page with a list of your bookmarks menu.",
     "homepage_url": "https://github.com/kyamuise/new-tab-bookmarks",
     "icons": {
@@ -10,14 +10,14 @@
         "name": "Koji Yamamoto"
     },
     "chrome_url_overrides": {
-        "newtab": "html/index.html"
+        "newtab": "src/index.html"
     },
     "permissions": [
         "bookmarks",
         "storage"
     ],
     "options_ui": {
-        "page": "html/options.html",
+        "page": "src/settings/options.html",
         "browser_style": true
     }
 }
