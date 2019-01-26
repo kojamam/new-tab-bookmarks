@@ -5,11 +5,13 @@
 </head>
 
 <body>
-    <p>テーマ設定項目をここに追加したい。</p>
     <form>
+        <div>
         <label for="favicon-display">Display favicons</label>
         <input type="radio" name="favicon-display" value="favicon-display-on">ON</input>
         <input type="radio" name="favicon-display" value="favicon-display-off">OFF</input>
+        <p>If "ON" is selected, favicon images will be loaded from Google's cache.</p>
+        </div>
         <button type="submit">Save</button>
     </form>
     <script src="./options.js"></script>
